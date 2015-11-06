@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="poinOfSale" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="a98f9bb4-ea71-4e3f-bbe6-42a524e0ce00">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="PARA_F_DATE" class="java.lang.String"/>
+	<parameter name="PARA_L_DATE" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT
+     outleinvoice.`transactionId` AS outleinvoice_transactionId,
+     outleinvoice.`transactionType` AS outleinvoice_transactionType,
+     outleinvoice.`date` AS outleinvoice_date,
+     outleinvoice.`description` AS outleinvoice_description,
+     outleinvoice.`amount` AS outleinvoice_amount,
+     outleinvoice.`transaction` AS outleinvoice_transaction
+FROM
+     `outleinvoice` outleinvoice
+WHERE
+      outleinvoice.`date` >=  $P{PARA_F_DATE}
+      AND outleinvoice.`date` <=  $P{PARA_L_DATE}
+
+ORDER BY outleinvoice.`date`;]]>
+	</queryString>
+	<field name="outleinvoice_transactionId" class="java.lang.Integer"/>
+	<field name="outleinvoice_transactionType" class="java.lang.String"/>
+	<field name="outleinvoice_date" class="java.lang.String"/>
+	<field name="outleinvoice_description" class="java.lang.String"/>
+	<field name="outleinvoice_amount" class="java.lang.Double"/>
+	<field name="outleinvoice_transaction" class="java.lang.String"/>
+	<background>
+		<band/>
+	</background>
+	<title>
+		<band height="72">
+			<frame>
+				<reportElement mode="Opaque" x="-20" y="-20" width="595" height="92" backcolor="#006699" uuid="d6d6772c-fa59-419c-86dc-00e74148cc42"/>
+				<staticText>
+					<reportElement x="20" y="20" width="234" height="43" forecolor="#FFFFFF" uuid="0bc196de-de11-4a81-a60b-ff0288e997f8"/>
+					<textElement>
+						<font size="34" isBold="true"/>
+					</textElement>
+					<text><![CDATA[sumisu]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="395" y="43" width="180" height="20" forecolor="#FFFFFF" uuid="07425c32-9960-438a-a443-a2326a95e99f"/>
+					<textElement textAlignment="Right">
+						<font size="14" isBold="false"/>
+					</textElement>
+					<text><![CDATA[Outlet Record]]></text>
+				</staticText>
+			</frame>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="13"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="21">
+			<line>
+				<reportElement x="-20" y="20" width="595" height="1" forecolor="#666666" uuid="e8c8fd3a-4f13-4eaf-b70a-e73607ff1606"/>
+			</line>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="0" width="111" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="1b40c138-5f8f-404b-9127-c0c7e01b1e1f"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[TransactionId]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="111" y="0" width="111" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="5d420268-194a-42aa-9d7e-a85de4118a6e"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[TransactionType]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="222" y="0" width="111" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="0dc2cd16-ce20-41f8-adeb-83ac461af248"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Date]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="333" y="0" width="111" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="3878ecff-b861-46cb-b81e-92f1f64f1a2e"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Amount]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="444" y="0" width="111" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="d2335bad-55d1-4ea4-93ec-653e3a8a8387"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Description]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="19" width="555" height="1" uuid="187e7d6a-42ce-41b6-856e-0b8b255a66fe"/>
+			</line>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="0" y="0" width="111" height="20" uuid="0cbe6d1f-7cd7-4d5c-8df7-2c9e2565cd69"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{outleinvoice_transactionId}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="111" y="0" width="111" height="20" uuid="cc8464aa-1fd1-4272-a404-dcf29be3d21d"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{outleinvoice_transactionType}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="222" y="0" width="111" height="20" uuid="cf8f3940-df2a-4a20-a86a-812269ba9d1f"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{outleinvoice_date}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="333" y="0" width="111" height="20" uuid="d1ba3fcf-952d-4680-ba18-ed8afb014f8f"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{outleinvoice_amount}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="444" y="0" width="111" height="20" uuid="19edeceb-e16b-4bd2-80c0-f576e6834c8e"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{outleinvoice_description}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band/>
+	</columnFooter>
+	<pageFooter>
+		<band height="17">
+			<textField>
+				<reportElement mode="Opaque" x="0" y="4" width="515" height="13" backcolor="#E6E6E6" uuid="40a61416-cb83-4511-aff5-25442a5615df"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement mode="Opaque" x="515" y="4" width="40" height="13" backcolor="#E6E6E6" uuid="f7ec789b-9c8a-4109-b859-03b25d587675"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="0" y="4" width="100" height="13" uuid="dc9f412d-8c45-4366-b880-06e449ae46ab"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band/>
+	</summary>
+</jasperReport>

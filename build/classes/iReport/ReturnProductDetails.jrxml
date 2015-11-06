@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ReturnProductDetails" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="b7cf93cc-65b3-4e74-b217-abc58a2df921">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="PARA_DATE_FROM" class="java.lang.String"/>
+	<parameter name="PARA_DATE_TO" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT
+     expire_and_return_products.`Rid` AS expire_and_return_products_Rid,
+     expire_and_return_products.`product_name` AS expire_and_return_products_product_name,
+     expire_and_return_products.`product_id` AS expire_and_return_products_product_id,
+     expire_and_return_products.`quantity` AS expire_and_return_products_quantity,
+     expire_and_return_products.`date` AS expire_and_return_products_date
+FROM
+     `expire_and_return_products` expire_and_return_products
+WHERE
+     expire_and_return_products.`date` >= $P{PARA_DATE_FROM} AND expire_and_return_products.`date` <= $P{PARA_DATE_TO}]]>
+	</queryString>
+	<field name="expire_and_return_products_Rid" class="java.lang.Integer"/>
+	<field name="expire_and_return_products_product_name" class="java.lang.String"/>
+	<field name="expire_and_return_products_product_id" class="java.lang.String"/>
+	<field name="expire_and_return_products_quantity" class="java.lang.Integer"/>
+	<field name="expire_and_return_products_date" class="java.lang.String"/>
+	<background>
+		<band/>
+	</background>
+	<title>
+		<band height="72">
+			<frame>
+				<reportElement mode="Opaque" x="-20" y="-20" width="595" height="92" backcolor="#006699" uuid="07633196-87c1-4313-a434-483035761fc9"/>
+				<staticText>
+					<reportElement x="20" y="20" width="234" height="43" forecolor="#FFFFFF" uuid="d2e1c040-068c-4382-bbb7-c512cae7819c"/>
+					<textElement>
+						<font size="34" isBold="true"/>
+					</textElement>
+					<text><![CDATA[SUMISU]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="395" y="43" width="180" height="20" forecolor="#FFFFFF" uuid="f4d430f6-f412-4c25-a178-855b881c7e3d"/>
+					<textElement textAlignment="Right">
+						<font size="14" isBold="false"/>
+					</textElement>
+					<text><![CDATA[Return Product Details]]></text>
+				</staticText>
+			</frame>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="13"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="21">
+			<line>
+				<reportElement x="-20" y="20" width="595" height="1" forecolor="#666666" uuid="3b46dfda-3de7-4ceb-959b-09d57e6d3239"/>
+			</line>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="0" width="138" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="2ba54823-f911-45c7-943b-1b0ae4c7f564"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Product Name]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="138" y="0" width="138" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="faf2c7eb-4459-405b-93c3-de1fc418b4ea"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Product ID]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="276" y="0" width="138" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="a87c46bb-d6b2-4f41-b148-eebb623636b9"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Quantity]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="414" y="0" width="138" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="2b3ec65c-75e1-4f90-bb5d-9299b037c371"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Date]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="19" width="555" height="1" uuid="275f51ec-fc4b-43aa-8cb9-d822309c60d4"/>
+			</line>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="0" y="0" width="138" height="20" uuid="f6406913-480d-4271-af18-8644d41957a6"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{expire_and_return_products_product_name}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="138" y="0" width="138" height="20" uuid="632e7e4f-de68-47d6-b066-8dc9131fcd77"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{expire_and_return_products_product_id}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="276" y="0" width="138" height="20" uuid="03b0e73d-da99-4ece-be5e-eacb0d12b264"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{expire_and_return_products_quantity}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="414" y="0" width="138" height="20" uuid="6e678449-54a5-428a-bf84-28b51706afbb"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{expire_and_return_products_date}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band/>
+	</columnFooter>
+	<pageFooter>
+		<band height="18">
+			<textField>
+				<reportElement mode="Opaque" x="0" y="4" width="515" height="13" backcolor="#E6E6E6" uuid="44ff469b-54a7-44bc-9b63-9683bee5766c"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement mode="Opaque" x="515" y="4" width="40" height="13" backcolor="#E6E6E6" uuid="9740d28f-9f49-40bd-b2ec-610a18a791a4"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="0" y="4" width="100" height="13" uuid="92d1b155-6bfb-4932-9404-b80f81806389"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band/>
+	</summary>
+</jasperReport>

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="testReport1" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="d390127e-6b87-48d5-9d9e-fe3012a858ee">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="PARA_DEBIT" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT
+     profit.`transactionId` AS profit_transactionId,
+     profit.`transactionType` AS profit_transactionType,
+     profit.`date` AS profit_date,
+     profit.`description` AS profit_description,
+     profit.`amount` AS profit_amount,
+     profit.`transaction` AS profit_transaction
+FROM
+     `profit` profit
+WHERE
+     profit.`transactionType` = $P{PARA_DEBIT}]]>
+	</queryString>
+	<field name="profit_transactionId" class="java.lang.Integer"/>
+	<field name="profit_transactionType" class="java.lang.String"/>
+	<field name="profit_date" class="java.lang.String"/>
+	<field name="profit_description" class="java.lang.String"/>
+	<field name="profit_amount" class="java.lang.Double"/>
+	<field name="profit_transaction" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="92" splitType="Stretch">
+			<image>
+				<reportElement x="0" y="0" width="555" height="92" uuid="5c099382-bdb6-456e-ae25-e73b4da8f3b0"/>
+				<imageExpression><![CDATA["C:\\Users\\User\\Desktop\\designs\\report-header.jpg"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="31" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="100" height="20" uuid="403d1ba3-b2ab-4cb7-bbf8-4e136eda4b33"/>
+				<text><![CDATA[ID]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="164" y="0" width="100" height="20" uuid="e4f86637-e335-4761-b027-ced1f0b7c979"/>
+				<text><![CDATA[Type]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="112" height="20" uuid="b56178f2-7566-46e9-9012-9855dc7b391f"/>
+				<textFieldExpression><![CDATA[$F{profit_transactionId}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="164" y="0" width="100" height="20" uuid="25454332-9c52-4269-910b-1d9d88bedf6d"/>
+				<textFieldExpression><![CDATA[$F{profit_transactionType}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report2" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="0fb1ea49-8897-4dce-af90-cde611cfa94b">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="PARA_ID" class="java.lang.String"/>
+	<parameter name="PARA_EMPNAME" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT
+     employee.`empId` AS employee_empId,
+     employee.`fname` AS employee_fname,
+     employee.`lname` AS employee_lname,
+     employee.`address` AS employee_address,
+     employee.`phone` AS employee_phone,
+     employee.`BOD` AS employee_BOD,
+     employee.`gender` AS employee_gender,
+     employee.`nic` AS employee_nic,
+     employee.`section` AS employee_section,
+     employee.`category` AS employee_category
+FROM
+     `employee` employee
+where empid<$P{PARA_ID}]]>
+	</queryString>
+	<field name="employee_empId" class="java.lang.Integer"/>
+	<field name="employee_fname" class="java.lang.String"/>
+	<field name="employee_lname" class="java.lang.String"/>
+	<field name="employee_address" class="java.lang.String"/>
+	<field name="employee_phone" class="java.lang.String"/>
+	<field name="employee_BOD" class="java.lang.String"/>
+	<field name="employee_gender" class="java.lang.String"/>
+	<field name="employee_nic" class="java.lang.String"/>
+	<field name="employee_section" class="java.lang.String"/>
+	<field name="employee_category" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch">
+			<textField>
+				<reportElement x="51" y="15" width="100" height="20" uuid="2de07bd6-2982-473a-aeb7-63ceeefb4b37"/>
+				<textFieldExpression><![CDATA[$P{PARA_EMPNAME}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="23" splitType="Stretch">
+			<staticText>
+				<reportElement x="99" y="2" width="100" height="20" uuid="a1bb2893-d83d-4eff-82df-9df790d132ad"/>
+				<text><![CDATA[first name]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="2" width="100" height="20" uuid="a42a6239-9a05-48a1-aafe-5139fa9cc71c"/>
+				<text><![CDATA[empId]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="200" y="2" width="100" height="20" uuid="c1bb2b52-a738-48d2-af98-f2076feb03a9"/>
+				<text><![CDATA[employee_lname]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="100" height="20" uuid="7399ff74-3bd2-45ca-9114-2683e249a6c6"/>
+				<textFieldExpression><![CDATA[$F{employee_empId}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="200" y="0" width="100" height="20" uuid="326853cf-87a4-4dfa-b633-3401c4e444e5"/>
+				<textFieldExpression><![CDATA[$F{employee_lname}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="100" y="0" width="100" height="20" uuid="c4fd9d23-96ca-473d-a3c7-a5b220e827f7"/>
+				<textFieldExpression><![CDATA[$F{employee_fname}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

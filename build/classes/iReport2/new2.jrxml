@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="new2" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="06af102b-8dea-4f6e-a9bd-5532ace845d6">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     product.`itemId` AS product_itemId,
+     product.`proName` AS product_proName,
+     product.`price` AS product_price,
+     product.`ingredient` AS product_ingredient,
+     product.`qty` AS product_qty,
+     product.`weight` AS product_weight
+FROM
+     `product` product]]>
+	</queryString>
+	<field name="product_proName" class="java.lang.String"/>
+	<field name="product_price" class="java.lang.Double"/>
+	<field name="product_weight" class="java.lang.Double"/>
+	<background>
+		<band/>
+	</background>
+	<title>
+		<band height="72">
+			<frame>
+				<reportElement mode="Opaque" x="-20" y="-20" width="595" height="92" backcolor="#006699" uuid="f61bf73e-4594-4df7-8775-ef11b17d8536"/>
+				<staticText>
+					<reportElement x="20" y="20" width="316" height="43" forecolor="#FFFFFF" uuid="9507c962-f436-49cc-b69b-003dd8d177b7"/>
+					<textElement>
+						<font size="34" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Sumisu Rice Mills]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="395" y="43" width="180" height="20" forecolor="#FFFFFF" uuid="14344af3-6791-4289-b5db-7297507f90a7"/>
+					<textElement textAlignment="Right">
+						<font size="14" isBold="false"/>
+					</textElement>
+					<text><![CDATA[Product Details]]></text>
+				</staticText>
+			</frame>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="13"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="21">
+			<line>
+				<reportElement x="-20" y="20" width="595" height="1" forecolor="#666666" uuid="70101917-b1aa-4ca6-9a64-618b3fa082cc"/>
+			</line>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="0" width="185" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="34a374c8-6d28-4ea1-8a94-30eec372549b"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Product Name]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="185" y="0" width="185" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="d50eec31-97fe-4ddf-bdd9-618355d4c82f"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Product Price]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="370" y="0" width="185" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="9a6ebf69-af93-46cc-a18d-57aa3be19840"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Product Weight]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="19" width="555" height="1" uuid="d09a2308-3630-451d-9c96-138f4bdea82b"/>
+			</line>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="0" y="0" width="185" height="20" uuid="26d98cfb-b965-4a5a-abd0-80182394622b"/>
+				<textElement textAlignment="Justified">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{product_proName}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="185" y="0" width="185" height="20" uuid="47184da9-4198-456e-980e-6a2a26f1f64f"/>
+				<textElement textAlignment="Center">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{product_price}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="370" y="0" width="185" height="20" uuid="76da2955-e2f7-4757-b25b-73c9339cf8c2"/>
+				<textElement textAlignment="Center">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{product_weight}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band/>
+	</columnFooter>
+	<pageFooter>
+		<band height="17">
+			<textField>
+				<reportElement mode="Opaque" x="0" y="4" width="515" height="13" backcolor="#E6E6E6" uuid="6a0655ed-3711-4a1e-bae3-fe737aee7155"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement mode="Opaque" x="515" y="4" width="40" height="13" backcolor="#E6E6E6" uuid="3f3ee082-852a-4a03-ac7b-e628e12d7d3f"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="0" y="4" width="100" height="13" uuid="28626115-c0b4-4b0c-a7b6-77925c1e7665"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band/>
+	</summary>
+</jasperReport>

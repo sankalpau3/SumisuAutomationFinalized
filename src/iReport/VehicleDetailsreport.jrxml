@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="VehicleDetailsreport" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="c5879f3a-bf83-43f7-9a20-a0dce723f48a">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     deliveryvehicle.`vId` AS deliveryvehicle_vId,
+     deliveryvehicle.`vNo` AS deliveryvehicle_vNo,
+     deliveryvehicle.`vType` AS deliveryvehicle_vType,
+     deliveryvehicle.`fuelType` AS deliveryvehicle_fuelType,
+     deliveryvehicle.`Mrent` AS deliveryvehicle_Mrent,
+     deliveryvehicle.`LInsureDate` AS deliveryvehicle_LInsureDate,
+     deliveryvehicle.`InsExpDate` AS deliveryvehicle_InsExpDate,
+     deliveryvehicle.`LicenDate` AS deliveryvehicle_LicenDate,
+     deliveryvehicle.`LicenExpDate` AS deliveryvehicle_LicenExpDate
+FROM
+     `deliveryvehicle` deliveryvehicle]]>
+	</queryString>
+	<field name="deliveryvehicle_vId" class="java.lang.Integer"/>
+	<field name="deliveryvehicle_LInsureDate" class="java.lang.String"/>
+	<field name="deliveryvehicle_InsExpDate" class="java.lang.String"/>
+	<field name="deliveryvehicle_LicenDate" class="java.lang.String"/>
+	<field name="deliveryvehicle_LicenExpDate" class="java.lang.String"/>
+	<field name="deliveryvehicle_vNo" class="java.lang.String"/>
+	<field name="deliveryvehicle_vType" class="java.lang.String"/>
+	<field name="deliveryvehicle_fuelType" class="java.lang.String"/>
+	<field name="deliveryvehicle_Mrent" class="java.lang.Integer"/>
+	<background>
+		<band/>
+	</background>
+	<title>
+		<band height="72">
+			<frame>
+				<reportElement mode="Opaque" x="-20" y="-20" width="595" height="92" backcolor="#006699" uuid="7c55c3af-8160-4ea7-af76-3d8f21db6881"/>
+				<staticText>
+					<reportElement x="20" y="20" width="234" height="43" forecolor="#FFFFFF" uuid="b13cebd4-1517-4fc1-9729-e641b288fa98"/>
+					<textElement>
+						<font size="34" isBold="true"/>
+					</textElement>
+					<text><![CDATA[SUMISU]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="395" y="43" width="180" height="20" forecolor="#FFFFFF" uuid="e205184d-4630-4244-a8ea-a2ff1b7c52cf"/>
+					<textElement textAlignment="Right">
+						<font size="14" isBold="false"/>
+					</textElement>
+					<text><![CDATA[Vehicle Details]]></text>
+				</staticText>
+			</frame>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="13"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="21">
+			<line>
+				<reportElement x="-20" y="20" width="595" height="1" forecolor="#666666" uuid="ec208727-3bac-46b3-87d1-c5fd13c545c5"/>
+			</line>
+			<staticText>
+				<reportElement mode="Opaque" x="61" y="0" width="112" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="1772f87c-78e5-4b34-b02b-24ea42c84113"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Insurance Date]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="173" y="0" width="101" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="2cb036ca-c860-4ed0-ace7-7e347c6a1bc8"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Licence Date]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="0" width="61" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="e1369c73-e024-4d0f-941a-cb22ed838394"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[V NO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="274" y="0" width="86" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="ed8c0de9-d582-46c5-b97a-0c02701f45d5"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[V Type]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="360" y="0" width="103" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="7f646e89-3262-4ad0-89fa-7f853f7474b3"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Fuel Type]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="463" y="0" width="92" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="40735898-2d2f-42a5-ba4b-3dbaf080243c"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Rent Cost]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="46">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="19" width="555" height="1" uuid="6914f945-d006-419f-8d5e-30f2b45fae15"/>
+			</line>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="61" y="0" width="112" height="20" uuid="94deaf37-e571-442c-92a1-acdaa66bddc3"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{deliveryvehicle_LInsureDate}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="173" y="0" width="101" height="20" uuid="152eb96c-54b5-4af7-ac72-df385e3a233d"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{deliveryvehicle_LicenDate}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="274" y="0" width="86" height="20" uuid="c4f6a49a-4dbf-448f-8de7-5c30e173088b"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{deliveryvehicle_vType}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Opaque" x="0" y="20" width="515" height="13" backcolor="#E6E6E6" uuid="96303271-654b-4b00-b828-0c88176d3d6f"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="360" y="0" width="103" height="20" uuid="046a6f6f-194f-48e8-95b1-ec41dd82ccec"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{deliveryvehicle_fuelType}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="463" y="0" width="92" height="20" uuid="fa1b98c3-d525-40a6-90f8-2790c244b8fc"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{deliveryvehicle_Mrent}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="0" y="1" width="61" height="19" uuid="d66eea7e-6ec2-4e50-bb8a-8c13af1a809b"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{deliveryvehicle_vNo}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band/>
+	</columnFooter>
+	<pageFooter>
+		<band height="17">
+			<textField evaluationTime="Report">
+				<reportElement mode="Opaque" x="515" y="4" width="40" height="13" backcolor="#E6E6E6" uuid="20f6e9eb-c05b-4153-bf9f-024d01e150ad"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="0" y="4" width="100" height="13" uuid="433e7def-6a3e-4851-85bb-4bb2bb91b3ad"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band/>
+	</summary>
+</jasperReport>

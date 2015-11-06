@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="allreport" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="1a765de0-2c8a-4aee-ace4-05c3639dfe32">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     deliverycustomer.`cusId` AS 'Cust ID',
+     deliverycustomer.`fname` AS 'First Name',
+     deliverycustomer.`lname` AS 'Last Name',
+     deliverycustomer.`email` AS 'E-Mail',
+     deliverycustomer.`address` AS 'Address',
+     deliverycustomer.`phone` AS 'Phone',
+     deliverycustomer.`StartDate` AS 'Star tDate'
+
+FROM
+     `deliverycustomer` deliverycustomer]]>
+	</queryString>
+	<field name="Cust ID" class="java.lang.Integer"/>
+	<field name="First Name" class="java.lang.String"/>
+	<field name="Last Name" class="java.lang.String"/>
+	<field name="E-Mail" class="java.lang.String"/>
+	<field name="Address" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Phone" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Star tDate" class="java.lang.String"/>
+	<background>
+		<band/>
+	</background>
+	<title>
+		<band height="72">
+			<frame>
+				<reportElement mode="Opaque" x="-20" y="-20" width="595" height="92" backcolor="#006699" uuid="2777d27a-05b6-456d-b320-cf369919f6c1"/>
+				<staticText>
+					<reportElement x="20" y="20" width="301" height="43" forecolor="#FFFFFF" uuid="3838549a-e9f5-47a4-9c74-82b5e1fe6a55"/>
+					<textElement>
+						<font size="34" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Sumisu Rice Mills]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="395" y="43" width="180" height="20" forecolor="#FFFFFF" uuid="a1144613-d592-415d-ad78-165028df7fba"/>
+					<textElement textAlignment="Right">
+						<font size="14" isBold="false"/>
+					</textElement>
+					<text><![CDATA[Delivery Customer]]></text>
+				</staticText>
+			</frame>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="13"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="21">
+			<line>
+				<reportElement x="-20" y="20" width="595" height="1" forecolor="#666666" uuid="1729cd0a-2adf-48a2-aeeb-53123bf018c6"/>
+			</line>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="0" width="79" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="4e163e57-1d39-4610-a780-3ab25c7f01e7"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Cus ID]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="79" y="0" width="79" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="c56d53c6-4d8f-44ab-870b-e4ce3b5804f6"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[First Name]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="158" y="0" width="79" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="487c766a-e5b8-4063-aa63-d4b4c9573f06"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Last Name]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="237" y="0" width="79" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="61b327d1-be62-43c7-9594-0b754501aaff"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[E-Mail]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="316" y="0" width="79" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="d23be42a-8f00-4af8-a870-7b8e79ba83bf"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Address]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="395" y="0" width="79" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="d89a4b97-5194-4514-bf03-19af4465e7d3"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Phone]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="474" y="0" width="79" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="42aae69c-6d59-4c61-bbe4-d3671c0361a2"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Start Date]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="19" width="555" height="1" uuid="f1210547-bb78-4679-811e-6ebe3c462bc2"/>
+			</line>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="237" y="0" width="79" height="20" uuid="bddaea7a-7a46-4f24-9dcc-d88c5179d79d"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{E-Mail}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="395" y="0" width="79" height="20" uuid="31620128-c4d3-4c8d-948e-55e5ff70e75a"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Phone}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="316" y="0" width="79" height="20" uuid="050e76fa-794c-4075-a908-2322ec1416e5"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Address}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="474" y="0" width="79" height="20" uuid="a68c4dc7-1cf9-4b6a-bac7-3eb54838138d"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Star tDate}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="158" y="0" width="79" height="20" uuid="f1dc344f-b300-4407-9c1d-6754f267b313"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Last Name}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="0" y="0" width="79" height="20" uuid="f1635445-1f48-4fcc-87d1-ddef2e9f2d21"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Cust ID}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="79" y="0" width="79" height="20" uuid="72e71fad-f55d-4e5c-8259-3e08f76f45fb"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{First Name}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band/>
+	</columnFooter>
+	<pageFooter>
+		<band height="17">
+			<textField>
+				<reportElement mode="Opaque" x="0" y="4" width="515" height="13" backcolor="#E6E6E6" uuid="6f28cb75-fb4d-402e-9606-8914d02f6f93"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement mode="Opaque" x="515" y="4" width="40" height="13" backcolor="#E6E6E6" uuid="8d572e9c-59c2-4002-b912-b4768fbd3f85"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="0" y="4" width="100" height="13" uuid="c66e3fe4-2972-4561-b2b4-213fcfe78c00"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band/>
+	</summary>
+</jasperReport>

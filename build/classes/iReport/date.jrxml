@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="date" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="b2c67b91-dfd7-4741-ba94-da8cb2257c29">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="PARA_DATE" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT
+     attendence.`EmpID` AS attendence_EmpID,
+     attendence.`Date` AS attendence_Date,
+     attendence.`StartTime` AS attendence_StartTime,
+     attendence.`EndTime` AS attendence_EndTime
+FROM
+     `attendence` attendence
+WHERE
+	attendence.`Date` = $P{PARA_DATE}	]]>
+	</queryString>
+	<field name="attendence_EmpID" class="java.lang.Integer"/>
+	<field name="attendence_Date" class="java.lang.String"/>
+	<field name="attendence_StartTime" class="java.lang.String"/>
+	<field name="attendence_EndTime" class="java.lang.String"/>
+	<background>
+		<band/>
+	</background>
+	<title>
+		<band height="72">
+			<frame>
+				<reportElement mode="Opaque" x="-20" y="-20" width="595" height="92" backcolor="#006699" uuid="3100c581-60a6-4938-afc8-7f288e8d0a90"/>
+				<staticText>
+					<reportElement x="20" y="20" width="234" height="43" forecolor="#FFFFFF" uuid="f4a8ec56-84cb-4648-a33d-7eb5b38b7380"/>
+					<textElement>
+						<font size="34" isBold="true"/>
+					</textElement>
+					<text><![CDATA[TITLE]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="395" y="43" width="180" height="20" forecolor="#FFFFFF" uuid="a1e9a312-b241-4209-ba35-e79dd2900066"/>
+					<textElement textAlignment="Right">
+						<font size="14" isBold="false"/>
+					</textElement>
+					<text><![CDATA[Add a description here]]></text>
+				</staticText>
+			</frame>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="13"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="21">
+			<line>
+				<reportElement x="-20" y="20" width="595" height="1" forecolor="#666666" uuid="5fa13384-ad53-44b9-9561-d96d16488c60"/>
+			</line>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="0" width="277" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="bb5a67ed-5ba0-48ea-9fa2-f04126caea70"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Employee_Date]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="277" y="0" width="277" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="0f3d4589-47d2-43a8-904c-6125ee8754e3"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Date]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="19" width="555" height="1" uuid="39cdd53c-7d6c-482a-9dfd-846326c50e92"/>
+			</line>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="0" y="0" width="277" height="20" uuid="07187632-3484-45bc-bd5e-191a813e5355"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{attendence_EmpID}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="277" y="0" width="277" height="20" uuid="661c73cd-3c4f-45d8-99de-69847d14d590"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{attendence_Date}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band/>
+	</columnFooter>
+	<pageFooter>
+		<band height="17">
+			<textField>
+				<reportElement mode="Opaque" x="0" y="4" width="515" height="13" backcolor="#E6E6E6" uuid="4424dd72-3a64-4b0a-aba9-9f5002c6ba27"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement mode="Opaque" x="515" y="4" width="40" height="13" backcolor="#E6E6E6" uuid="6b621f16-a587-4944-b221-382a6066c8a3"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="0" y="4" width="100" height="13" uuid="9e23aaf3-d188-4c37-8cba-365d58a36f30"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band/>
+	</summary>
+</jasperReport>
